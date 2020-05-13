@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Profesor
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+  {% include 'includes/header.html' %}
+</div>
+
+<div class="container my-1 px-5">
+    <div class="row justify-content-around">
+      <!--regresar-->
+      <div class="col-12 position-absolute">
+        <a href="{% url 'inicio_app:inicio' %}">
+          <img src="{% static 'img/espalda.png' %}" class="float-right"width="50px" height="50px" alt="My image">
+        </a>
+      </div>
+      <!-- calificaciones -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <img src="{% static 'img/prueba.png' %}" width="200px" height="200px" alt="My image">
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <button type="button" class="btn btn-outline-info btn-block">Registar calificaciones</button>
+          </div>
+        </div>
+      </div>
+      <!-- Temporal -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <img src="{% static 'img/asistencia.png' %}" width="200px" height="200px" alt="My image">
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <button type="button" class="btn btn-outline-info btn-block">Registrar asistencia</button>
+          </div>
+        </div>
+      </div>
+      <!-- Alta -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <a href="{% url 'profesor_app:registrar-profesor' %}">
+              <img src="{% static 'img/profesor2.png' %}" width="200px" height="200px" alt="My image">
+            </a>
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <a href="{% url 'profesor_app:registrar-profesor' %}">
+              <button type="button" class="btn btn-outline-info btn-block">Ingresar un nuevo profesor</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Baja -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <a href="{% url 'profesor_app:profesores-baja' %}">
+              <img src="{% static 'img/menos.png' %}" width="200px" height="200px" alt="My image">
+            </a>
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <a href="{% url 'profesor_app:profesores-baja' %}">
+              <button type="button" class="btn btn-outline-info btn-block">Baja definitiva</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock contenido %}

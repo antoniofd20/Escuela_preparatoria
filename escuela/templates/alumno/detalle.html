@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block titulo %}
+    {{persona.nombre_completo}}
+{% endblock titulo %}
+
+ 
+{% block contenido %}
+ <div class="container mb-4">
+    {% include 'includes/header.html' %}
+</div>
+
+<div class="container">
+    <div class="row justify-content-around">
+        <!--Regresar-->
+        <div class="col-12 position-absolute">
+            <a href="{% url 'inicio_app:inicio' %}">
+              <img src="{% static 'img/espalda.png' %}" class="float-right"width="50px" height="50px" alt="My image">
+            </a>
+          </div>
+    </div>
+
+    <div class="row justify-content-around">
+        <div class="col-12 fondo1 py-4 rounded mb-3 shadow">
+            <p class="h4 font-weight-bold titulo">Datos personales de {{ object }}</p>
+            <div class="row justify-content-around mt-5 ml-4">
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.apellido_paterno }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Apellido paterno</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.apellido_materno }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Apellido materno</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.nombres }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Nombre(s)</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.curp }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Curp</label>
+                </div>
+            </div>
+
+            <div class="row justify-content-around mt-5">
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.sexo }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Sexo</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.nacimiento }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Fecha de nacimiento</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.edad }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Edad</label>
+                </div>
+            </div>
+
+            <hr>
+            <p class="h4 font-weight-bold titulo">Contacto</p>
+
+            <div class="row justify-content-around mt-5">
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.email }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Correo eléctronico</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.celular }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Ceular</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.telefono }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Teléfono de casa</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.tel_recado }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Teléfono de emergencia</label>
+                </div>
+            </div>
+
+            <hr>
+            <p class="h4 font-weight-bold titulo">Dirección</p>
+
+            <div class="row justify-content-around mt-5">
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.calle_numero }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Calle y número</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.colonia }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Colonia</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.municipio }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Municipio</label>
+                </div>
+                
+            </div>
+            <div class="row mt-5 justify-content-around">
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.estado }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Estado</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.c_postal }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Código postal</label>
+                </div>
+            </div>
+            
+            <hr>
+            <p class="h4 font-weight-bold titulo">Registro como alumno</p>
+
+            <div class="row justify-content-around mt-5">
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.matricula }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Matricula</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">{{ object.f_ingreso }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Fecha de ingreso</label>
+                </div>
+                <div class="col-3 text-center px-4">
+                    <p class="font-weight-bold">${{ object.pago }}</p>
+                    <hr>
+                    <label for="exampleFormControlInput1">Pago</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}
+     

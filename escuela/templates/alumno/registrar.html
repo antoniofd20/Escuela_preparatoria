@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Registro alumno
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container mb-5">
+    {% include 'includes/header.html' %}
+  </div>
+
+<div class="container">
+    <div class="row justify-content-around">
+        <!--Regresar-->
+        <div class="col-12 position-absolute">
+            <a href="{% url 'inicio_app:inicio' %}">
+              <img src="{% static 'img/espalda.png' %}" class="float-right"width="50px" height="50px" alt="My image">
+            </a>
+          </div>
+    </div>
+    
+    
+    <div class="row justify-content-around">
+        <div class="col-12 fondo1 py-4 shadow rounded mb-3">
+            <div class="row pl-5 ml-4">
+                <div class="col-12">
+                    <p class="h3 titulo"> REGISTRAR UN NUEVO ALUMNO</p>
+                </div>
+            </div>
+            <form method="POST" class="col-10 text-left pl-5 ml-5">{% csrf_token %}
+                <p class="h5">Datos personales:</p>
+                <div class="row">
+                    <div class="col-4">
+                        {{form.apellido_paterno.label}}:
+                        {{form.apellido_paterno}}
+                    </div>
+                    <div class="col-4">
+                        {{form.apellido_materno.label}}:
+                        {{form.apellido_materno}}
+                    </div>
+                    <div class="col-4">
+                        {{form.nombres.label}}:
+                        {{form.nombres}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        {{form.nacimiento.label}}:
+                        {{form.nacimiento}}
+                    </div>
+                    <div class="col-4">
+                        {{form.edad.label}}:
+                        {{form.edad}}
+                    </div>
+                    <div class="col-4">
+                        {{form.sexo.label}}:
+                        {{form.sexo}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        {{form.curp.label}}:
+                        {{form.curp}}
+                    </div>
+                </div>
+                <p class="h5">Contacto:</p>
+                <div class="row">
+                    <div class="col-3">
+                        {{form.telefono.label}}:
+                        {{form.telefono}}
+                    </div>
+                    <div class="col-3">
+                        {{form.celular.label}}:
+                        {{form.celular}}
+                    </div>
+                    <div class="col-3">
+                        {{form.tel_recado.label}}:
+                        {{form.tel_recado}}
+                    </div>
+                    <div class="col-3">
+                        {{form.email.label}}:
+                        {{form.email}}
+                    </div>
+                </div>
+                <p class="h5">Dirección:</p>
+                <div class="row">
+                    <div class="col-4">
+                        {{form.calle_numero.label}}:
+                        {{form.calle_numero}}
+                    </div>
+                    <div class="col-4">
+                        {{form.colonia.label}}:
+                        {{form.colonia}}
+                    </div>
+                    <div class="col-4">
+                        {{form.municipio.label}}:
+                        {{form.municipio}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        {{form.estado.label}}:
+                        {{form.estado}}
+                    </div>
+                    <div class="col-4">
+                        {{form.c_postal.label}}:
+                        {{form.c_postal}}
+                    </div>
+                </div>
+
+                <p class="h5">Datos de registro:</p>
+                <div class="row">
+                    <div class="col-4">
+                        {{form.matricula.label}}:
+                        {{form.matricula}}
+                    </div>
+                    <div class="col-4">
+                        {{form.pago.label}}:
+                        {{form.pago}}
+                    </div>
+                    <div class="col-4 pt-4">
+                        <button type="submit" class="btn btn-info btn-block">Registrar alumno</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}
+
+

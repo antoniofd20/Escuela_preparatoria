@@ -1,0 +1,69 @@
+<!-- Titulo de la escuela -->
+<div class="container">
+    <div class="row my-3">
+        <div class="col-12 h1 titulo text-center">
+            ESCUELA PREPARATORIA ABIERTA
+        </div>
+    </div>
+</div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col-12">
+            <ul class="nav nav-tabs justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'inicio_app:inicio' %}">Inicio</a>
+                </li>
+                <!-- Alumnos -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Alumnos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'alumno_app:registrar-alumno' %}">Dar de alta alumno</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'alumno_app:lista-baja' %}">Dar de baja alumno</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Baja temporal</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'alumno_app:lista-alumnos' %}">Lista de los alumnos</a>
+                    </div>
+                </li>
+                <!-- Profesores -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesores</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Subir calificaciones</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Registar asistencia</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'profesor_app:registrar-profesor' %}">Nuevo profesor</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'profesor_app:profesores-baja' %}">Dar de baja profesor</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'profesor_app:lista-profesores' %}">Lista de los profesores</a>
+                    </div>
+                </li>
+                <!-- Grupos -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Grupos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Horarios</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Nuevo grupo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Terminar ciclo</a>
+                    </div>
+                </li>
+                <!-- Pagos -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pagos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Registrar pago</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Consultar historial</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Provedores</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

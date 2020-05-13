@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Alumnos
+{% endblock titulo %}
+
+
+{% block contenido %}
+<div class="container mb-3">
+    {% include 'includes/header.html' %}
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <p class="h3 titulo">Alumnos</p>
+             <!-- BUSCADOR -->
+             <form class="row my-3" method="GET">{% csrf_token %}
+                <div class="col-5">
+                    <input class="form-control" type="text" id="kword" name="kword" placeholder="Buscar alumno...">
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-info">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">MATRICULA</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">FECHA DE INGRESO</th>
+                        <th scope="col">PAGO</th>
+                        <th scope="col">ACCION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for alumno in lista %}
+                    <tr> 
+                            <th scope="row">{{alumno.matricula}}</th>
+                            <td>{{alumno}}</td>
+                            <td>{{ alumno.f_ingreso }}</td>
+                            <td>${{alumno.pago}}</td>
+                            <td>
+                                <a class="btn btn-success" href="{% url 'alumno_app:detalle-alumno' alumno.id %}">Ver</a>
+                                <a class="btn btn-warning" href="{% url 'alumno_app:editar-alumno' alumno.id %}">Editar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!--PAGINACION-->
+        <div class="row justify-content-center">
+            {% if is_paginated %}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <!-- PAGINAS PREVIAS -->
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                                <span aria-hidden="true">Atras</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        <!-- PAGINA ACTUAL -->    
+                        {% for pagina in paginator.page_range %}
+                        
+                            {% ifequal pagina page_obj.number  %} 
+                                <a class="page-link">{{pagina}} <span class="sr-only">(current)</span></a>
+                                {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{pagina}}">{{pagina}}</a></li>
+                            {% endifequal %}
+                                
+                        {% endfor %}
+                        <!-- PAGINA SIGUIENTE-->  
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                <span aria-hidden="true">Siguiente</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

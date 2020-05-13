@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+  Alumno
+{% endblock titulo %}
+
+{% block contenido %}
+
+<div class="container">
+  {% include 'includes/header.html' %}
+</div>
+
+<div class="container my-1 px-5">
+    <div class="row justify-content-around">
+      <!-- Imagen para regresar -->
+      <div class="col-12 position-absolute">
+        <a href="{% url 'inicio_app:inicio' %}">
+          <img src="{% static 'img/espalda.png' %}" class="float-right"width="50px" height="50px" alt="My image">
+        </a>
+      </div>
+      <!--Historial -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <img src="{% static 'img/examen.png' %}" width="200px" height="200px" alt="My image">
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <button type="button" class="btn btn-outline-info btn-block">Ver historial del alumno</button>
+          </div>
+        </div>
+      </div>
+      <!-- Alta -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <a href="{% url 'alumno_app:registrar-alumno' %}">
+              <img src="{% static 'img/anadir.png' %}" width="200px" height="200px" alt="My image">
+            </a>
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <a href="{% url 'alumno_app:registrar-alumno' %}">
+              <button type="button" class="btn btn-outline-info btn-block">Dar de alta nuevo alumno</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Baja -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <a href="{% url 'alumno_app:lista-baja' %}">
+              <img src="{% static 'img/menos.png' %}" width="200px" height="200px" alt="My image">
+            </a>
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <a href="{% url 'alumno_app:lista-baja' %}">
+              <button type="button" class="btn btn-outline-info btn-block">Baja definitiva</button>
+            </a>
+          </div>
+        </div>
+      </div> 
+      <!-- Temporal -->
+      <div class="col-5 text-center border border-light">
+        <div class="row justify-content-around">
+          <div class="col-6">
+            <img src="{% static 'img/reclutamiento.png' %}" width="200px" height="200px" alt="My image">
+          </div>
+        </div>
+        <div class="row justify-content-around my-2">
+          <div class="col-7">
+            <button type="button" class="btn btn-outline-info btn-block">Baja temporal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock contenido %}

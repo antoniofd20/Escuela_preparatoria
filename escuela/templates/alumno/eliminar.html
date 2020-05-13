@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Dar de baja alumno
+{% endblock titulo %}
+
+{% block contenido %}
+{% include "includes/header.html" %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12">
+            
+            <div class="row justify-content-around">
+                <div class="col-5"><h4 class="text-danger text-center">{{ alumno }}  </h4></div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-5 justify-content-around">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">¡Esta usted a punto de dar de baja definitiva a un alumno!</h4>
+            <p>
+                Recuerde que al confirmar esta acción usted perdera todos los datos relacionadios al alumno/a: <br>
+                <strong>{{ alumno }}</strong>  y no podra deshacer los cambios. <br>
+                Registros del alumno: <br>
+                Matricula: <strong> {{ alumno.matricula }}</strong> <br>
+                Fecha de ingreso: <strong>{{ alumno.f_ingreso }} </strong> <br>
+            </p>
+            <hr>
+            <form method="POST"> {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger btn-block">Estoy seguro</button>
+            </form>
+        </div>
+    </div>
+</div> 
+{% endblock contenido %}
